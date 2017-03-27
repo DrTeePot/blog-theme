@@ -51,5 +51,18 @@
     {{!-- The main JavaScript file for Casper --}}
     <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
 
+    {{!-- Custom JS for the cover --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
+    <script>
+        var pattern = Trianglify({
+            width: window.innerWidth,
+            height: window.innerHeight,
+            x_colors: "YlGnBu"
+        });
+        if ($("header").attr("style") == undefined){
+            $("header").attr("style", "background-image: url(" + pattern.png() + ")");
+        }
+    </script>
+
 </body>
 </html>
