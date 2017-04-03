@@ -1,17 +1,21 @@
-<div class="nav">
-    <h3 class="nav-title">Menu</h3>
-    <a href="#" class="nav-close">
-        <span class="hidden">Close</span>
-    </a>
-    <ul>
-        {{#foreach navigation}}
-            <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
-        {{/foreach}}
-    </ul>
-    {{#if @labs.subscribers}}
-        <a class="subscribe-button" href="{{@blog.url}}/subscribe/">Subscribe</a>
-    {{else}}
-        <a class="subscribe-button icon-feed" href="{{@blog.url}}/rss/">Subscribe</a>
-    {{/if}}
+<div class="masthead clearfix">
+    <div class="inner">
+        <a href="{{@blog.url}}">
+        <h3 class="masthead-brand">{{@blog.title}}</h3>
+        </a>
+        <nav>
+            <ul class="nav masthead-nav">
+            {{#foreach navigation}}
+                <li class="{{#if current}}active{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
+            {{/foreach}}
+            {{#if @labs.subscribers}}
+             <li><button class="btn btn-default" href="{{@blog.url}}/subscribe/">Subscribe</button> </li>
+            {{else}}
+            <li>
+            <button class="btn btn-default" href="{{@blog.url}}/rss/">Subscribe</button>
+            </li>
+            {{/if}}
+            </ul>
+        </nav>
+    </div>
 </div>
-<span class="nav-cover"></span>
